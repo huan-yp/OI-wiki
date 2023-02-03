@@ -132,6 +132,7 @@ $$
 ???+note "注"
     狄利克雷卷积运算中的单位元不是常函数，但是在狄利克雷生成函数中等价于常数 $1$。
     
+
     狄利克雷卷积运算中的数论函数常函数 $1$，在狄利克雷生成函数中等价于黎曼函数 $\zeta$。
 
 **逆元：** 对于任何一个满足 $f(x)\ne 0$ 的数论函数，如果有另一个数论函数 $g(x)$ 满足 $f*g=\varepsilon$，则称 $g(x)$ 是 $f(x)$ 的逆元。由 **等式的性质** 可知，逆元是唯一的。
@@ -162,6 +163,8 @@ $$
 $$
 \begin{aligned}
 h(a)h(b)&=\sum_{d_1\mid a}{f(d_1)g\left(\dfrac a{d_1} \right)}\sum_{d_2\mid b}{f(d_2)g\left(\dfrac b{d_2} \right)}\\
+&=\sum_{d_1\mid a}\sum_{d_2\mid b}{f(d_1)f(d_2)g}{\left(\dfrac a{d_1} \right)}{g\left(\dfrac b{d_2} \right)}\\
+&=\sum_{d_1d_2\mid ab}{f(d_1d_2)g\left(\dfrac {ab}{d_1d_2} \right)}\\
 &=\sum_{d\mid ab}{f(d)g\left(\dfrac {ab}d \right)}\\
 &=h(ab)
 \end{aligned}
@@ -177,24 +180,24 @@ $$
 
 - 若 $nm=1$，则 $g(nm)=g(1)=1$，结论显然成立；
 
--   若 $nm>1(\gcd(n,m)=1)$，假设现在对于所有的 $xy<nm(\gcd(x,y)=1)$，都有 $g(xy)=g(x)g(y)$，所以有：
+- 若 $nm>1(\gcd(n,m)=1)$，假设现在对于所有的 $xy<nm(\gcd(x,y)=1)$，都有 $g(xy)=g(x)g(y)$，所以有：
 
-    $$
-    g(nm)=-\sum_{d\mid nm,d\ne 1}{f(d)g\left(\dfrac {nm}d \right)}=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(ab)g\left(\dfrac {nm}{ab} \right)}
-    $$
+  $$
+  g(nm)=-\sum_{d\mid nm,d\ne 1}{f(d)g\left(\dfrac {nm}d \right)}=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(ab)g\left(\dfrac {nm}{ab} \right)}
+  $$
 
-    又因为 $\dfrac{nm}{ab}<nm$，所以有：
+  又因为 $\dfrac{nm}{ab}<nm$，所以有：
 
-    $$
-    \begin{aligned}
-    g(nm)&=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(ab)g\left(\dfrac {nm}{ab} \right)}\\\\
-    &=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(a)f(b)g\left(\dfrac {n}{a} \right)g\left(\dfrac {m}{b} \right)}\\\\
-    &=f(1)f(1)g(n)g(m)-\sum_{a\mid n,b\mid m}{f(a)f(b)g\left(\dfrac {n}{a} \right)g\left(\dfrac {m}{b} \right)}\\\\
-    &=g(n)g(m)-\sum_{a\mid n}{f(a)g\left(\dfrac {n}{a} \right)}\sum_{b\mid m}{f(b)g\left(\dfrac {m}{b} \right)}\\\\
-    &=g(n)g(m)-\varepsilon(n)-\varepsilon(m)\\\\
-    &=g(n)g(m)
-    \end{aligned}
-    $$
+  $$
+  \begin{aligned}
+  g(nm)&=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(ab)g\left(\dfrac {nm}{ab} \right)}\\\\
+  &=-\sum_{a\mid n,b\mid m,ab\ne 1}{f(a)f(b)g\left(\dfrac {n}{a} \right)g\left(\dfrac {m}{b} \right)}\\\\
+  &=f(1)f(1)g(n)g(m)-\sum_{a\mid n,b\mid m}{f(a)f(b)g\left(\dfrac {n}{a} \right)g\left(\dfrac {m}{b} \right)}\\\\
+  &=g(n)g(m)-\sum_{a\mid n}{f(a)g\left(\dfrac {n}{a} \right)}\sum_{b\mid m}{f(b)g\left(\dfrac {m}{b} \right)}\\\\
+  &=g(n)g(m)-\varepsilon(n)\varepsilon(m)\\\\
+  &=g(n)g(m)
+  \end{aligned}
+  $$
 
 综合以上两点，结论成立。
 
